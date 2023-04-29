@@ -62,5 +62,17 @@ class ProductAppIntegrationTest {
         assertEquals(1, actualProducts.size());
         assertEquals(1, testH2Repository.findAll().size());
     }
+
+    @Test
+    public void testFindProductById(){
+
+    }
+
+    @Test
+    public void testDeleteProduct(){
+
+    }
+
+
 }
 

@@ -93,5 +93,20 @@ class ProductServiceTest {
         verify(productRepository, times(1)).findById(product.getId());
 
     }
+
+    @Test
+    void getProductByName_WhenCalled_MustReturnExpectedResult(){
+
+    }
+
+    @Test
+    void deleteProduct_WhenCalled_MustReturnExpectedResult(){
+
+    }
+
+    @Test
+    void updateProduct_WhenCalled_MustReturnExpectedResult(){
+
+    }
 }
 
