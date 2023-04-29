@@ -1,8 +1,7 @@
 package az.adauniversity.demo.controller;
 
 import az.adauniversity.demo.entity.Product;
-import az.adauniversity.demo.service.ProductService;
-import lombok.RequiredArgsConstructor;
+import az.adauniversity.demo.service.ProductServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,16 +18,14 @@ import java.util.List;
 @RequestMapping("/products")
 public class ProductController {
 
-
     @Autowired
-    private ProductService service;
+    private ProductServiceImpl service;
 
     @PostMapping
     public Product addProduct(@RequestBody Product product) {
         product = service.saveProduct(product);
         return product;
     }
-
 
     @GetMapping
     public List<Product> findAllProducts() {
@@ -39,7 +36,6 @@ public class ProductController {
     public Product findProductById(@PathVariable int id) {
         return service.getProductById(id);
     }
-
 
     @PutMapping("/update/{id}")
     public Product updateProduct(@RequestBody Product product, @PathVariable int id) {

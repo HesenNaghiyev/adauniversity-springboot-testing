@@ -3,17 +3,18 @@ package az.adauniversity.demo.service;
 
 import az.adauniversity.demo.entity.Product;
 import az.adauniversity.demo.repository.ProductRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import az.adauniversity.demo.repository.ProductRepository2;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Objects;
 
 @Service
-public class ProductService {
+@RequiredArgsConstructor
+public class ProductServiceImpl {
 
-    @Autowired
-    private ProductRepository repository;
+    private final ProductRepository repository;
+
 
     public Product saveProduct(Product product) {
         return repository.save(product);
@@ -41,7 +42,7 @@ public class ProductService {
     }
 
     public Product updateProduct(Integer productId, Product product) {
-        Product existingProduct = repository.findById(productId).orElse(null);
+        Product existingProduct = getProductById(productId);
         existingProduct.setName(product.getName());
         existingProduct.setQuantity(product.getQuantity());
         existingProduct.setPrice(product.getPrice());
